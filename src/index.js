@@ -1,31 +1,36 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import faker from '@faker-js/faker';
+import CommentDetail from './CommentDetail';
 
 const App = () => {
 	return (
 		<div className="ui container comments">
-			<div className="comment">
-				<a href="/" className="avatar">
-					<img alt="avatar" src={faker.image.avatar()} />
-				</a>
-				<div className="content">
-					<a href="/" className="author">{getFullName()}</a>
-				</div>
-				<div className="metadata">
-					<span className="date">{faker.date.past().toUTCString()}</span>
-				</div>
-				<div className="text">
-					Nice blog post!
-				</div>
-			</div>
+			<CommentDetail 
+				author={getFullName()} 
+				avatar={faker.image.avatar()} 
+				date={faker.date.past().toUTCString()} 
+				comment="Nice"
+			/>
+			<CommentDetail 
+				author={getFullName()} 
+				avatar={faker.image.avatar()} 
+				date={faker.date.past().toUTCString()} 
+				comment="+1"
+			/>
+			<CommentDetail 
+				author={getFullName()} 
+				avatar={faker.image.avatar()} 
+				date={faker.date.past().toUTCString()} 
+				comment="Sugoi!"
+			/>
 		</div>
 	);
-
-	function getFullName() {
-		const name = faker.name;
-		return name.firstName() + ' ' + faker.name.lastName();
-	}
 };
+
+function getFullName() {
+    const name = faker.name;
+    return name.firstName() + ' ' + faker.name.lastName();
+}
 
 ReactDOM.createRoot(document.querySelector("#root")).render(<App/>);
