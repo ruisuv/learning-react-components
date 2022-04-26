@@ -2,28 +2,35 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import faker from '@faker-js/faker';
 import CommentDetail from './CommentDetail';
+import ApprovalCard from './ApprovalCard';
 
 const App = () => {
 	return (
 		<div className="ui container comments">
-			<CommentDetail 
-				author={getFullName()} 
-				avatar={faker.image.avatar()} 
-				date={faker.date.past().toUTCString()} 
-				comment="Nice"
-			/>
-			<CommentDetail 
-				author={getFullName()} 
-				avatar={faker.image.avatar()} 
-				date={faker.date.past().toUTCString()} 
-				comment="+1"
-			/>
-			<CommentDetail 
-				author={getFullName()} 
-				avatar={faker.image.avatar()} 
-				date={faker.date.past().toUTCString()} 
-				comment="Sugoi!"
-			/>
+			<ApprovalCard>
+				<CommentDetail 
+					author={getFullName()} 
+					avatar={faker.image.avatar()} 
+					date={faker.date.past().toUTCString()} 
+					comment="Nice"
+				/>
+			</ApprovalCard>
+			<ApprovalCard>
+				<CommentDetail 
+					author={getFullName()} 
+					avatar={faker.image.avatar()} 
+					date={faker.date.past().toUTCString()} 
+					comment="+1"
+				/>
+			</ApprovalCard>
+			<ApprovalCard>
+				<CommentDetail 
+					author={getFullName()} 
+					avatar={faker.image.avatar()} 
+					date={faker.date.past().toUTCString()} 
+					comment="Sugoi!"
+				/>
+			</ApprovalCard>
 		</div>
 	);
 };
